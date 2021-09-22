@@ -12,7 +12,7 @@ from flask import request, jsonify
 app = Flask(__name__)
 api = Api(app)
 
-StoragePath = "localhost:8080"
+StoragePath = "127.0.0.1:8080"
 
 
 @api.route('/hel11lo/',methods=['GET'])
@@ -46,4 +46,4 @@ class HelloWorld3(Resource):
         response = connection.getresponse().readlines().__str__()
         return jsonify(response)
 
-app.run(host="localhost", port=8081, debug=True)
+app.run(host="127.0.0.1", port=8081, debug=False,threaded=True)
